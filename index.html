@@ -1,34 +1,27 @@
-```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>De Grote Leider — Officieel Archief van Heroëstan</title>
+    <title>Het Archief van Hero Ploer</title>
 
     <style>
-        :root {
-            --rood: #a00000;
-            --donkerrood: #650000;
-            --zwart: #090909;
-            --goud: #d4af37;
-            --creme: #f2ead7;
-            --grijs: #222;
-        }
-
         * {
             box-sizing: border-box;
             scroll-behavior: smooth;
         }
 
+        html {
+            scroll-padding-top: 85px;
+        }
+
         body {
             margin: 0;
+            background: #eee9df;
+            color: #211d18;
             font-family: Georgia, "Times New Roman", serif;
-            background:
-                radial-gradient(circle at top, #3b0000 0%, #090909 45%);
-            color: var(--creme);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         /* =========================
@@ -39,151 +32,185 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: #151515;
+            border-bottom: 4px solid #b51d24;
+            box-shadow: 0 3px 15px rgba(0,0,0,.3);
+        }
 
-            background: rgba(0, 0, 0, 0.96);
-            border-bottom: 3px solid var(--goud);
-
+        .nav-inner {
+            max-width: 1200px;
+            margin: auto;
             display: flex;
+            align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 5px;
-
-            padding: 12px;
         }
 
         nav a {
-            color: white;
+            color: #eee;
             text-decoration: none;
-            padding: 9px 15px;
-
+            padding: 15px 14px;
             font-family: Arial, sans-serif;
+            font-size: .82rem;
             font-weight: bold;
-            font-size: 13px;
             text-transform: uppercase;
-
-            border: 1px solid transparent;
-            transition: 0.2s;
+            letter-spacing: 1px;
+            transition: .2s;
         }
 
         nav a:hover {
-            color: var(--goud);
-            border-color: var(--goud);
-            background: var(--rood);
+            background: #b51d24;
         }
 
         /* =========================
            ALGEMEEN
         ========================= */
 
-        section {
-            max-width: 1100px;
+        .container {
+            width: min(1100px, 92%);
             margin: auto;
-            padding: 100px 25px;
-            border-bottom: 1px solid #442020;
+        }
+
+        section {
+            padding: 75px 0;
+            border-bottom: 1px solid #c9c0b3;
         }
 
         h1, h2, h3 {
+            font-family: Georgia, "Times New Roman", serif;
             line-height: 1.2;
         }
 
         h2 {
-            color: var(--goud);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 34px;
-            text-align: center;
-            margin-bottom: 45px;
+            font-size: 2.3rem;
+            border-bottom: 3px solid #b51d24;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
         }
 
-        .kaart {
-            background: rgba(20, 20, 20, 0.92);
-            border: 1px solid #5c3030;
-            border-left: 5px solid var(--rood);
-            padding: 30px;
-            margin: 25px 0;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+        h3 {
+            font-size: 1.5rem;
+            color: #7e151a;
         }
 
-        .officieel {
+        .label {
             font-family: Arial, sans-serif;
-            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: #aaa;
-        }
-
-        .goud {
-            color: var(--goud);
+            font-size: .75rem;
+            color: #8b1b20;
+            font-weight: bold;
         }
 
         /* =========================
-           HERO / HEADER
+           HERO
         ========================= */
 
-        #home {
-            min-height: 90vh;
-
+        .hero {
+            min-height: 650px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-
             text-align: center;
-
             background:
-                linear-gradient(
-                    rgba(0,0,0,0.35),
-                    rgba(80,0,0,0.7)
-                );
-        }
-
-        .vlag-mini {
-            width: 180px;
-            height: 110px;
-            margin-bottom: 35px;
-
-            background: linear-gradient(
-                to bottom,
-                #a00000 0%,
-                #a00000 33%,
-                #ffffff 33%,
-                #ffffff 66%,
-                #168000 66%,
-                #168000 100%
-            );
-
-            border: 5px solid var(--goud);
-            box-shadow: 0 0 35px rgba(212,175,55,0.35);
-        }
-
-        #home h1 {
-            font-size: clamp(50px, 9vw, 110px);
-            margin: 0;
+                linear-gradient(rgba(15,15,15,.80), rgba(15,15,15,.88)),
+                url("hero.jpg") center/cover;
             color: white;
-            text-shadow:
-                4px 4px 0 #600000,
-                0 0 30px rgba(255,255,255,0.15);
+            border-bottom: 8px solid #b51d24;
         }
 
-        #home h3 {
-            color: var(--goud);
-            font-size: 25px;
-            margin-top: 15px;
+        .hero-content {
+            width: min(900px, 92%);
+            margin: auto;
         }
 
-        .stempel {
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 span {
+            color: #d52b31;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin: 20px auto;
+        }
+
+        .official {
             display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
+            border: 1px solid #aaa;
+            padding: 8px 18px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-            color: var(--goud);
-            border: 2px solid var(--goud);
+        /* =========================
+           TITELBLOK
+        ========================= */
 
-            transform: rotate(-3deg);
+        .chapter {
+            margin-top: 60px;
+        }
 
+        .chapter:first-child {
+            margin-top: 0;
+        }
+
+        .chapter-number {
+            color: #a01a20;
             font-family: Arial, sans-serif;
             font-weight: bold;
+            font-size: .8rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .chapter h3 {
+            margin-top: 5px;
+        }
+
+        /* =========================
+           FOTO'S
+        ========================= */
+
+        .photo-placeholder {
+            float: right;
+            width: 300px;
+            min-height: 210px;
+            margin: 0 0 25px 30px;
+            background: #d8d1c6;
+            border: 2px solid #968c7f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #625a51;
+            font-family: Arial, sans-serif;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-placeholder small {
+            display: block;
+            padding: 20px;
+        }
+
+        .clear {
+            clear: both;
         }
 
         /* =========================
@@ -191,35 +218,32 @@
         ========================= */
 
         .timeline {
-            border-left: 4px solid var(--rood);
-            margin-left: 20px;
+            border-left: 4px solid #b51d24;
+            margin: 40px 0;
             padding-left: 30px;
         }
 
-        .moment {
+        .timeline-item {
+            margin-bottom: 35px;
             position: relative;
-            margin-bottom: 45px;
         }
 
-        .moment::before {
+        .timeline-item::before {
             content: "";
-            position: absolute;
-
             width: 15px;
             height: 15px;
-
-            background: var(--goud);
-            border: 4px solid var(--rood);
-            border-radius: 50%;
-
+            background: #b51d24;
+            border: 4px solid #eee9df;
+            position: absolute;
             left: -41px;
-            top: 7px;
+            top: 5px;
+            border-radius: 50%;
         }
 
-        .jaar {
-            color: var(--goud);
-            font-size: 25px;
+        .year {
+            font-family: Arial, sans-serif;
             font-weight: bold;
+            color: #a0191f;
         }
 
         /* =========================
@@ -227,111 +251,150 @@
         ========================= */
 
         .quote {
-            font-size: 24px;
+            margin: 35px 0;
+            padding: 25px 35px;
+            background: #ddd5c9;
+            border-left: 7px solid #b51d24;
+            font-size: 1.3rem;
             font-style: italic;
-            text-align: center;
-            padding: 35px;
-            margin: 25px 0;
-
-            border-top: 1px solid var(--goud);
-            border-bottom: 1px solid var(--goud);
         }
 
-        .quote span {
+        .quote-author {
             display: block;
-            margin-top: 15px;
-            font-size: 14px;
-            color: #aaa;
+            margin-top: 10px;
+            font-size: .85rem;
             font-style: normal;
+            font-family: Arial, sans-serif;
+            color: #625a51;
         }
 
         /* =========================
-           FOTO GALERIJ
+           KAARTEN
         ========================= */
 
-        .galerij {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
-        .foto {
-            height: 250px;
+        .card {
+            background: #f7f4ee;
+            border: 1px solid #c7bfb3;
+            padding: 25px;
+            box-shadow: 3px 3px 0 rgba(0,0,0,.08);
+        }
 
-            background:
-                linear-gradient(135deg, #333, #111);
+        .card h3 {
+            margin-top: 0;
+        }
 
-            border: 2px solid #633;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* =========================
+           VLAG
+        ========================= */
 
+        .flag-box {
             text-align: center;
-            color: #999;
+            background: #f7f4ee;
+            border: 1px solid #c7bfb3;
+            padding: 35px;
+            margin: 35px 0;
         }
 
-        .foto img {
+        .flag-placeholder {
+            width: min(700px, 90%);
+            aspect-ratio: 3 / 2;
+            margin: auto;
+            background: #d1cbc1;
+            border: 2px dashed #81786d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            color: #625a51;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .flag-placeholder img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         /* =========================
-           AUDIO
+           VOLKSLIED
         ========================= */
 
+        .anthem {
+            background: #171717;
+            color: white;
+            padding: 45px;
+            margin-top: 30px;
+            text-align: center;
+            border-top: 5px solid #b51d24;
+        }
+
         audio {
-            width: 100%;
+            width: min(700px, 100%);
             margin-top: 20px;
         }
 
         /* =========================
-           FOOTER
+           EINDE
         ========================= */
 
-        footer {
+        .ending {
+            background: #151515;
+            color: white;
             text-align: center;
-            padding: 60px 20px;
-
-            background: #050505;
-            border-top: 3px solid var(--rood);
-
-            color: #777;
+            padding: 90px 20px;
         }
 
-        footer strong {
-            color: var(--goud);
+        .ending h2 {
+            border: 0;
+        }
+
+        footer {
+            background: #0c0c0c;
+            color: #888;
+            text-align: center;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            font-size: .8rem;
         }
 
         /* =========================
            MOBIEL
         ========================= */
 
-        @media (max-width: 600px) {
-
-            nav {
-                gap: 0;
+        @media (max-width: 700px) {
+            nav a {
+                padding: 10px 8px;
+                font-size: .65rem;
             }
 
-            nav a {
-                font-size: 10px;
-                padding: 8px;
+            .photo-placeholder {
+                float: none;
+                width: 100%;
+                margin: 20px 0;
+            }
+
+            .hero {
+                min-height: 550px;
             }
 
             section {
-                padding: 75px 18px;
+                padding: 50px 0;
             }
 
             h2 {
-                font-size: 27px;
-            }
-
-            .kaart {
-                padding: 20px;
+                font-size: 1.9rem;
             }
 
             .quote {
-                font-size: 19px;
+                padding: 20px;
             }
         }
     </style>
@@ -339,487 +402,1345 @@
 
 <body>
 
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATIE
-===================================================== -->
+========================================================= -->
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#leven">Leven</a>
-    <a href="#opkomst">Opkomst</a>
-    <a href="#heroestan">Heroëstan</a>
-    <a href="#vlag">Vlag</a>
-    <a href="#volkslied">Volkslied</a>
-    <a href="#citaten">Citaten</a>
-    <a href="#galerij">Galerij</a>
+    <div class="nav-inner">
+        <a href="#home">Home</a>
+        <a href="#verhaal">Het verhaal</a>
+        <a href="#tijdlijn">Tijdlijn</a>
+        <a href="#heroestan">Heroëstan</a>
+        <a href="#momenten">Momenten</a>
+        <a href="#uitvindingen">Uitvindingen</a>
+        <a href="#vlag">Vlag</a>
+        <a href="#volkslied">Volkslied</a>
+        <a href="#citaten">Citaten</a>
+    </div>
 </nav>
 
 
-<!-- =====================================================
-     HOME
-===================================================== -->
+<!-- =========================================================
+     HOMEPAGE
+========================================================= -->
 
-<section id="home">
+<header class="hero" id="home">
+    <div class="hero-content">
 
-    <div class="vlag-mini"></div>
+        <div class="official">
+            Officieel Historisch Staatsarchief — 2098
+        </div>
 
-    <div class="officieel">
-        Officieel historisch staatsarchief — editie 2098
+        <h1>Hero <span>Ploer</span></h1>
+
+        <p>
+            Het leven, de opkomst, de heerschappij en de uiteindelijke
+            ondergang van één van de meest invloedrijke leiders uit
+            de geschiedenis van Heroëstan.
+        </p>
+
+        <p>
+            <strong>2012 — 2098</strong>
+        </p>
+
     </div>
+</header>
 
-    <h1>DE GROTE LEIDER</h1>
 
-    <h3>Het officiële archief van Heroëstan</h3>
+<!-- =========================================================
+     VERHAAL
+========================================================= -->
 
-    <p>
-        <strong>Één leider. Eén land. Eén buitengewoon twijfelachtige geschiedenis.</strong>
-    </p>
+<section id="verhaal">
+<div class="container">
 
-    <div class="stempel">
-        GECLASSIFICEERD — MAAR NIET ECHT
-    </div>
+    <div class="label">Het officiële levensverhaal</div>
+    <h2>De geschiedenis van Hero Ploer</h2>
 
+
+    <!-- HOOFDSTUK 1 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk I</div>
+        <h3>De vroege jaren</h3>
+
+        <div class="photo-placeholder">
+            <!-- Vervang dit blok eventueel door:
+            <img src="hero-kind.jpg" alt="Hero als kind">
+            -->
+            <small>
+                FOTO PLAATSEN<br><br>
+                Hero als kind<br>
+                ca. 2018
+            </small>
+        </div>
+
+        <p>
+            Hero Ploer werd in 2012 geboren in Nederland. Over zijn vroege
+            jeugd zijn relatief weinig betrouwbare documenten bewaard gebleven,
+            hoewel verschillende latere staatsarchieven beweren dat reeds in
+            zijn eerste levensjaren sprake was van een uitzonderlijk sterk
+            gevoel voor leiderschap.
+        </p>
+
+        <p>
+            Familieleden beschreven hem echter vooral als een jongen die graag
+            wilde weten waarom dingen waren zoals ze waren, en die het daar
+            vervolgens niet altijd mee eens was.
+        </p>
+
+        <p>
+            Hero groeide op in een periode waarin Nederland nog weinig vermoedde
+            van de politieke veranderingen die later met zijn naam verbonden
+            zouden worden. In zijn schooltijd ontwikkelde hij een steeds grotere
+            belangstelling voor geschiedenis, politiek en revolutionaire
+            bewegingen.
+        </p>
+
+        <p>
+            Waar andere jongeren zich bezighielden met gebruikelijke zaken,
+            begon Hero zich af te vragen hoe een samenleving volgens één groot
+            plan georganiseerd zou kunnen worden.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 2 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk II</div>
+        <h3>De eerste schilderijen</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                Een vroeg schilderij van Hero<br>
+                ca. 2024
+            </small>
+        </div>
+
+        <p>
+            Rond 2024 begon Hero zich bezig te houden met schilderkunst.
+            Aanvankelijk was dit een relatief onschuldige hobby. Hero zag echter
+            al snel grotere mogelijkheden.
+        </p>
+
+        <p>
+            Volgens hem was schilderkunst niet alleen een manier om mooie
+            afbeeldingen te maken, maar ook een middel om geschiedenis, politiek
+            en persoonlijke overtuigingen uit te drukken.
+        </p>
+
+        <p>
+            Zijn eerste werken werden in kleine kring bekeken. De kwaliteit
+            ervan is onderwerp van discussie gebleven. Sommige bronnen spreken
+            van experimenteel werk, terwijl andere bronnen het houden op
+            “schilderijen die duidelijk met verf waren gemaakt”.
+        </p>
+
+        <p>
+            Hero zelf was overtuigd van zijn talent.
+        </p>
+
+        <p>
+            Zijn artistieke carrière zou echter uiteindelijk een andere richting
+            nemen dan hij aanvankelijk had verwacht.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 3 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk III</div>
+        <h3>De verhuizing naar Armenië</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                Hero in Armenië<br>
+                2035
+            </small>
+        </div>
+
+        <p>
+            Op 23-jarige leeftijd besloot Hero Nederland te verlaten.
+            In 2035 vertrok hij naar Armenië, waar hij een nieuw hoofdstuk
+            in zijn leven wilde beginnen.
+        </p>
+
+        <p>
+            De redenen voor zijn vertrek waren volgens verschillende documenten
+            zowel persoonlijk als ambitieus. Hero wilde ervaring opdoen buiten
+            Nederland en was ervan overtuigd dat zijn toekomst ergens anders lag.
+        </p>
+
+        <p>
+            In Armenië begon hij aan een schilderschool. Daarmee keerde hij
+            terug naar zijn eerste grote interesse: kunst.
+        </p>
+
+        <p>
+            De verwachtingen waren hoog.
+            De werkelijkheid was minder indrukwekkend.
+        </p>
+
+        <p>
+            Hero bleek moeite te hebben met de dagelijkse praktijk van het
+            kunstenaarsbestaan. Zijn ideeën waren groot, maar het uitvoeren
+            ervan bleek aanzienlijk ingewikkelder.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 4 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk IV</div>
+        <h3>Het einde van de schilderschool</h3>
+
+        <p>
+            Binnen de schilderschool kreeg Hero langzaam de reputatie iemand
+            te zijn die graag uitlegde hoe een schilderij moest worden gemaakt,
+            ook wanneer hij het schilderij zelf nog niet had afgemaakt.
+        </p>
+
+        <p>
+            Uiteindelijk werd duidelijk dat een succesvolle carrière als
+            kunstschilder waarschijnlijk niet voor hem was weggelegd.
+        </p>
+
+        <p>
+            Hero verliet de school zonder de internationale doorbraak waarop
+            hij had gehoopt.
+        </p>
+
+        <p>
+            De officiële geschiedschrijving noemt dit geen mislukking, maar
+            een <em>“strategische heroriëntatie binnen het bredere Heroïstische
+            levensplan.”</em>
+        </p>
+
+        <p>
+            In de praktijk betekende het vooral dat Hero iets anders ging doen.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 5 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk V</div>
+        <h3>Azerbeidzjan</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                Hero in Azerbeidzjan<br>
+                ca. 2036
+            </small>
+        </div>
+
+        <p>
+            Na zijn periode in Armenië reisde Hero verder naar Azerbeidzjan.
+            Daar begon zijn leven een steeds internationaler karakter te krijgen.
+        </p>
+
+        <p>
+            Hero raakte betrokken bij politieke gesprekken en ontwikkelde
+            het idee dat Armenië, Georgië en Azerbeidzjan niet langer uitsluitend
+            afzonderlijke staten moesten zijn.
+        </p>
+
+        <p>
+            Hij zag mogelijkheden voor samenwerking en begon te spreken over
+            een groter politiek project.
+        </p>
+
+        <p>
+            De eerste ideeën voor de latere Unie der Socialistische Heroïsche
+            Republieken begonnen in deze periode vorm te krijgen.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 6 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk VI</div>
+        <h3>De geboorte van het Heroïsme</h3>
+
+        <p>
+            Hero's politieke ideeën kregen langzaam een vaste vorm.
+            Hij sprak niet langer alleen over een beweging, maar over een
+            complete ideologie.
+        </p>
+
+        <p>
+            Heroïsme moest volgens hem een combinatie worden van politieke
+            eenheid, sociale organisatie, arbeid, nationale trots en persoonlijke
+            loyaliteit aan de staat.
+        </p>
+
+        <p>
+            De ideologie was echter opvallend sterk gericht op Hero zelf.
+        </p>
+
+        <p>
+            Hoewel Hero beweerde dat Heroïsme groter was dan één persoon,
+            werd het in de praktijk steeds moeilijker om onderscheid te maken
+            tussen Heroïsme en Hero.
+        </p>
+
+        <div class="quote">
+            “Een volk zonder leiding is als een schilder zonder verf.
+            In beide gevallen gebeurt er eigenlijk niet zoveel.”
+            <span class="quote-author">— toegeschreven aan Hero, ca. 2034</span>
+        </div>
+    </article>
+
+
+    <!-- HOOFDSTUK 7 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk VII</div>
+        <h3>De Grote Heroïsche Revolutie</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                De Grote Heroïsche Revolutie
+            </small>
+        </div>
+
+        <p>
+            In 2033 brak de Grote Heroïsche Revolutie uit.
+            De beweging van Hero groeide uit tot een georganiseerde politieke
+            macht en begon een steeds grotere invloed uit te oefenen.
+        </p>
+
+        <p>
+            De revolutie werd door Hero voorgesteld als het begin van een
+            nieuw tijdperk. Oude politieke structuren moesten verdwijnen en
+            plaatsmaken voor een systeem waarin Heroïstische waarden centraal
+            stonden.
+        </p>
+
+        <p>
+            Op 14 augustus 2034 werd de Volksrepubliek Heroëstan uitgeroepen.
+            Hero werd benoemd tot Opperste Leider.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 8 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk VIII</div>
+        <h3>De oprichting van de USHR</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                Oprichting van de USHR
+            </small>
+        </div>
+
+        <p>
+            Uit de samenwerking tussen Armenië, Georgië en Azerbeidzjan
+            ontstond uiteindelijk de Unie der Socialistische Heroïsche
+            Republieken, beter bekend als de USHR.
+        </p>
+
+        <p>
+            De Unie was gebaseerd op het idee dat de drie republieken
+            gezamenlijk sterker zouden staan dan afzonderlijk.
+        </p>
+
+        <p>
+            Hero werd de belangrijkste politieke figuur binnen het nieuwe
+            systeem.
+        </p>
+
+        <p>
+            De USHR kreeg een eigen vlag, eigen symbolen en een uitgebreide
+            bureaucratie.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 9 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk IX</div>
+        <h3>De vorming van Heroëstan</h3>
+
+        <p>
+            Heroëstan ontwikkelde zich tot een sterk gecentraliseerde
+            socialistische staat.
+        </p>
+
+        <p>
+            De regering introduceerde staatsbedrijven, vijfjarenplannen,
+            nationale programma's en officiële culturele evenementen.
+        </p>
+
+        <p>
+            Vrijwel ieder onderdeel van het openbare leven werd georganiseerd.
+        </p>
+
+        <p>
+            Er kwamen staatsfestivals, Heroïstische jeugdorganisaties,
+            nationale feestdagen en officiële culturele programma's.
+        </p>
+
+        <p>
+            Op scholen werd geschiedenis onderwezen vanuit een Heroïstisch
+            perspectief.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 10 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk X</div>
+        <h3>Het eerste Grote Vijfjarenplan</h3>
+
+        <p>
+            In 2042 werd het eerste Grote Heroïsche Vijfjarenplan ingevoerd.
+        </p>
+
+        <p>
+            Het doel was ambitieus: Heroëstan moest binnen vijf jaar uitgroeien
+            tot de economisch, cultureel en historisch belangrijkste natie
+            ter wereld.
+        </p>
+
+        <p>
+            Het plan bevatte honderden doelstellingen.
+        </p>
+
+        <p>
+            Sommige daarvan werden gehaald. Andere werden gedeeltelijk gehaald.
+            Een aantal werd later simpelweg opnieuw opgenomen in het volgende
+            vijfjarenplan.
+        </p>
+
+        <p>
+            Een opmerkelijk succes was de groei van de verfproductie.
+            Binnen enkele jaren steeg de productie met 312 procent.
+        </p>
+
+        <p>
+            Waarom precies zoveel verf nodig was, werd gezien als een minder
+            belangrijke vraag.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 11 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XI</div>
+        <h3>De Grote Nationale Verfcrisis</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                Hero tijdens de Verfcrisis<br>
+                2056
+            </small>
+        </div>
+
+        <p>
+            In 2056 bereikte de Heroïstische economie een bijzonder dieptepunt.
+        </p>
+
+        <p>
+            Heroëstan had te veel verf.
+        </p>
+
+        <p>
+            De combinatie van slechte planning, overproductie en de enorme
+            hoeveelheid verf die nodig was voor portretten van Hero had geleid
+            tot grote overschotten.
+        </p>
+
+        <p>
+            De situatie werd uitgeroepen tot de Grote Nationale Verfcrisis.
+        </p>
+
+        <p>
+            Hero besloot uiteindelijk dat alle staatsportretten opnieuw
+            geschilderd moesten worden.
+        </p>
+
+        <p>
+            Met dezelfde verf.
+        </p>
+
+        <p>
+            De operatie werd maandenlang uitgevoerd.
+            Aan het einde van het jaar verklaarde de regering de crisis
+            officieel opgelost.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 12 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XII</div>
+        <h3>Hero de uitvinder</h3>
+
+        <p>
+            Naast politiek leider en voormalig kunstenaar ontwikkelde Hero
+            zich ook tot uitvinder.
+        </p>
+
+        <p>
+            Zijn uitvindingen waren meestal niet bijzonder nuttig, maar werden
+            door staatsmedia uitvoerig besproken.
+        </p>
+
+        <p>
+            Tot zijn bekendste uitvindingen behoorden de Automatische
+            Schaduwverplaatser, de Zelfterugkerende Baksteen, de Omgekeerde
+            Paraplu en uiteindelijk de Universele Apparaatknop.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 13 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XIII</div>
+        <h3>De persoonlijkheidscultus</h3>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                Hero tijdens een staatsceremonie
+            </small>
+        </div>
+
+        <p>
+            In de jaren daarna groeide de persoonlijkheidscultus verder.
+        </p>
+
+        <p>
+            Hero verscheen op bankbiljetten, postzegels, boeken, mokken,
+            stations en openbare gebouwen.
+        </p>
+
+        <p>
+            Zijn verjaardag werd een nationale feestdag.
+        </p>
+
+        <p>
+            Kinderen leerden zijn uitspraken op school en ambtenaren begonnen
+            vergaderingen met officiële Heroïstische verklaringen.
+        </p>
+
+        <p>
+            Op sommige plaatsen werden zelfs speciale Heroïstische klokken
+            geplaatst die iedere ochtend een korte boodschap van de leider
+            afspeelden.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 14 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XIV</div>
+        <h3>Het huis van de leider</h3>
+
+        <p>
+            Hero woonde ondertussen in een groot huis met 38 kamers en
+            14 badkamers.
+        </p>
+
+        <p>
+            Er was ook een schilderstudio aanwezig.
+        </p>
+
+        <p>
+            De studio werd later vooral gebruikt voor dozen.
+        </p>
+
+        <p>
+            Dit werd gezien als het duidelijkste bewijs dat Hero's schilder-
+            carrière definitief tot het verleden behoorde.
+        </p>
+
+        <p>
+            Het huis zou later nog een onverwachte rol spelen in de
+            geschiedenis van Heroëstan.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 15 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XV</div>
+        <h3>De Eeuwige Leider</h3>
+
+        <p>
+            In 2071 begon wat later het Gouden Tijdperk van Heroëstan werd
+            genoemd.
+        </p>
+
+        <p>
+            De economie stabiliseerde, grote staatsprojecten werden uitgevoerd
+            en Hero's positie werd sterker dan ooit.
+        </p>
+
+        <p>
+            In 2089 kreeg hij officieel de titel:
+            <strong>“Eeuwige Leider”.</strong>
+        </p>
+
+        <p>
+            De titel betekende niet dat Hero letterlijk eeuwig zou leven.
+            Dat bleek achteraf een enigszins ongelukkige formulering.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 16 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XVI</div>
+        <h3>De laatste jaren</h3>
+
+        <p>
+            Vanaf 2097 trok Hero zich gedeeltelijk terug uit het openbare leven.
+            Zijn toespraken werden korter en zijn publieke optredens minder
+            frequent.
+        </p>
+
+        <p>
+            De dagelijkse leiding van Heroëstan werd steeds vaker uitgevoerd
+            door ministers en partijfunctionarissen.
+        </p>
+
+        <p>
+            Hero bracht veel tijd door in zijn woning.
+        </p>
+
+        <p>
+            Daar bleek zich ondertussen een ander historisch fenomeen te
+            hebben ontwikkeld.
+        </p>
+
+        <p>
+            Een rat.
+        </p>
+
+        <p>
+            Volgens latere onderzoeken woonde het dier al ongeveer 23 jaar
+            in het huis van Hero. In de loop der jaren had het een familie
+            opgebouwd en verschillende nesten gemaakt.
+        </p>
+
+        <div class="photo-placeholder">
+            <small>
+                FOTO PLAATSEN<br><br>
+                De beroemde rat van Hero
+            </small>
+        </div>
+
+        <p>
+            Het dier beschikte bovendien over voedselvoorraden waarvan de
+            omvang pas na Hero's dood volledig duidelijk werd.
+        </p>
+
+        <p>
+            De rat was daarmee waarschijnlijk langer onafgebroken inwoner
+            van het machtscentrum geweest dan verschillende ministers.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+
+    <!-- HOOFDSTUK 17 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XVII</div>
+        <h3>De dood van Hero</h3>
+
+        <p>
+            Hero Ploer overleed in 2098 op 86-jarige leeftijd.
+        </p>
+
+        <p>
+            De officiële doodsoorzaak was een hantavirusinfectie.
+        </p>
+
+        <p>
+            De ziekte was afkomstig van een rat.
+        </p>
+
+        <p>
+            Dezelfde rat die jarenlang in zijn woning had geleefd.
+        </p>
+
+        <p>
+            De dood van Hero veroorzaakte grote nationale rouw.
+            In Heroëstan werden vlaggen halfstok gehangen en werden officiële
+            herdenkingen georganiseerd.
+        </p>
+
+        <p>
+            Na zijn dood begon langzaam een nieuwe periode:
+            het post-Heroïstische tijdperk.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 18 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XVIII</div>
+        <h3>Het einde van de Heroïstische orde</h3>
+
+        <p>
+            Na de dood van Hero in 2098 bleek al snel dat Heroëstan veel
+            sterker afhankelijk was geweest van zijn persoon dan de regering
+            had willen toegeven.
+        </p>
+
+        <p>
+            Zolang Hero leefde, bestond er een duidelijke autoriteit waar alle
+            belangrijke beslissingen uiteindelijk naar terug konden worden
+            geleid.
+        </p>
+
+        <p>
+            Na zijn dood ontstond echter een probleem dat jarenlang was
+            uitgesteld:
+        </p>
+
+        <div class="quote">
+            Niemand wist precies wie er nu het laatste woord had.
+        </div>
+
+        <p>
+            Ministers begonnen elkaar tegen te werken. Verschillende groepen
+            beweerden dat zij de oorspronkelijke Heroïstische leer het beste
+            begrepen.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 19 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XIX</div>
+        <h3>De opvolgingscrisis</h3>
+
+        <p>
+            Het grootste probleem van Heroëstan was dat Hero nooit een
+            duidelijke opvolger had aangewezen.
+        </p>
+
+        <p>
+            Tijdens zijn leven was dat nauwelijks nodig geweest.
+            Niemand had immers verwacht dat de Eeuwige Leider daadwerkelijk
+            zou overlijden.
+        </p>
+
+        <p>
+            De regering probeerde een collectief leiderschap in te voeren.
+            Een raad van twaalf hoge functionarissen zou gezamenlijk het land
+            besturen.
+        </p>
+
+        <p>
+            Het systeem hield niet lang stand.
+        </p>
+
+        <p>
+            De twaalf leden waren het namelijk zelden eens.
+        </p>
+
+        <p>
+            Een vergadering over landbouw kon veranderen in een discussie
+            over de betekenis van Hero's laatste toespraak.
+        </p>
+
+        <p>
+            Een debat over buitenlandse handel eindigde soms met een stemming
+            over de vraag of een oud standbeeld van Hero moest worden verplaatst.
+        </p>
+    </article>
+
+
+    <!-- HOOFDSTUK 20 -->
+
+    <article class="chapter">
+
+        <div class="chapter-number">Hoofdstuk XX</div>
+        <h3>De val van Heroëstan</h3>
+
+        <div class="photo-placeholder">
+
+            <!--
+            Zet hier bijvoorbeeld je eigen Napoleon-afbeelding.
+            Gebruik bij voorkeur een afbeelding waarvoor je rechten hebt.
+            -->
+
+            <small>
+                FOTO PLAATSEN<br><br>
+                Napoleon / “There is nothing we can do”<br><br>
+                PLAATS HIER JE AFBEELDING
+            </small>
+
+        </div>
+
+        <p>
+            Tussen 2105 en 2110 viel het rijk vrijwel volledig uiteen.
+            De economie, die jarenlang afhankelijk was geweest van centrale
+            planning, begon ernstige problemen te vertonen.
+        </p>
+
+        <p>
+            Staatsbedrijven gingen failliet, spoorlijnen werden slecht
+            onderhouden en verschillende overheidsgebouwen kwamen leeg te staan.
+        </p>
+
+        <p>
+            Ook de enorme hoeveelheid Heroïstische monumenten bleek een probleem.
+            Er waren simpelweg te veel standbeelden.
+        </p>
+
+        <p>
+            Gemeenten wisten niet wat ze ermee moesten doen.
+            Sommige werden verwijderd, andere kregen een nieuwe functie en
+            enkele werden jarenlang genegeerd.
+        </p>
+
+        <p>
+            De regering probeerde ondertussen de bevolking ervan te overtuigen
+            dat de overgang volledig volgens plan verliep.
+        </p>
+
+        <p>
+            <strong>Het plan was alleen nergens meer te vinden.</strong>
+        </p>
+
+        <p>
+            In 2110 werd de Volksrepubliek Heroëstan officieel opgeheven.
+            Daarmee kwam een einde aan meer dan 75 jaar Heroïstische
+            staatsgeschiedenis.
+        </p>
+
+        <div class="clear"></div>
+    </article>
+
+</div>
 </section>
 
 
-<!-- =====================================================
-     LEVEN
-===================================================== -->
+<!-- =========================================================
+     TIJDLIJN
+========================================================= -->
 
-<section id="leven">
+<section id="tijdlijn">
+<div class="container">
 
-    <h2>📖 Het leven van Hero</h2>
-
-    <div class="kaart">
-
-        <p class="officieel">
-            Biografisch dossier — Staatsarchief Heroëstan
-        </p>
-
-        <h3>De geboorte van een legende</h3>
-
-        <p>
-            Op <strong>[GEBOORTEDATUM]</strong> werd in
-            <strong>[GEBOORTEPLAATS]</strong> een persoon geboren die
-            volgens historici later een ongekend grote invloed zou krijgen
-            op de wereldgeschiedenis.
-        </p>
-
-        <p>
-            Zijn naam was <strong>[NAAM VAN JE VRIEND]</strong>.
-        </p>
-
-        <p>
-            Volgens betrouwbare bronnen — voornamelijk bronnen die Hero zelf
-            heeft goedgekeurd — was al vroeg duidelijk dat hij voor iets
-            groters bestemd was.
-        </p>
-
-    </div>
-
+    <div class="label">Historisch overzicht</div>
+    <h2>De tijdlijn van Hero</h2>
 
     <div class="timeline">
 
-        <div class="moment">
-            <div class="jaar">2012</div>
-            <h3>Het begin</h3>
-            <p>
-                Hero wordt geboren. Niemand weet op dat moment nog dat
-                Heroëstan binnenkort een onvermijdelijk onderdeel van de
-                wereldgeschiedenis zal worden.
-            </p>
+        <div class="timeline-item">
+            <div class="year">2012</div>
+            <strong>Geboorte van Hero Ploer</strong>
+            <p>Hero wordt geboren in Nederland.</p>
         </div>
 
-        <div class="moment">
-            <div class="jaar">[JAAR]</div>
-            <h3>De eerste tekenen van leiderschap</h3>
-            <p>
-                Voeg hier een grappig verhaal toe uit zijn jeugd.
-                Bijvoorbeeld iets waarin hij al deed alsof hij de baas was.
-            </p>
+        <div class="timeline-item">
+            <div class="year">2024</div>
+            <strong>De schilderperiode</strong>
+            <p>Hero begint zich serieus met schilderkunst bezig te houden.</p>
         </div>
 
-        <div class="moment">
-            <div class="jaar">[JAAR]</div>
-            <h3>De ontdekking van zijn ware bestemming</h3>
-            <p>
-                Op deze dag begon de legende pas echt.
-            </p>
+        <div class="timeline-item">
+            <div class="year">2033</div>
+            <strong>De Grote Heroïsche Revolutie</strong>
+            <p>De Heroïsche beweging groeit uit tot een politieke macht.</p>
         </div>
 
-        <div class="moment">
-            <div class="jaar">2098</div>
-            <h3>De officiële geschiedschrijving</h3>
-            <p>
-                Hero wordt definitief opgenomen in de geschiedenisboeken.
-                Waarschijnlijk tegen zijn zin, maar daar heeft de
-                geschiedcommissie weinig boodschap aan.
-            </p>
+        <div class="timeline-item">
+            <div class="year">2034</div>
+            <strong>Oprichting van Heroëstan</strong>
+            <p>De Volksrepubliek Heroëstan wordt uitgeroepen.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2035</div>
+            <strong>Armenië</strong>
+            <p>Hero verhuist naar Armenië en begint aan een schilderschool.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2036</div>
+            <strong>Azerbeidzjan</strong>
+            <p>Hero werkt aan plannen voor internationale samenwerking.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2042</div>
+            <strong>Het eerste Vijfjarenplan</strong>
+            <p>De Heroïstische economie wordt volledig centraal gepland.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2056</div>
+            <strong>De Grote Verfcrisis</strong>
+            <p>Heroëstan produceert een enigszins problematische hoeveelheid verf.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2080</div>
+            <strong>De Universele Apparaatknop</strong>
+            <p>Hero presenteert zijn beroemdste uitvinding.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2089</div>
+            <strong>De Eeuwige Leider</strong>
+            <p>Hero krijgt officieel zijn bekendste titel.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2098</div>
+            <strong>De dood van Hero</strong>
+            <p>Het Heroïstische tijdperk begint af te brokkelen.</p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year">2110</div>
+            <strong>De val van Heroëstan</strong>
+            <p>De Volksrepubliek Heroëstan wordt officieel opgeheven.</p>
         </div>
 
     </div>
-
+</div>
 </section>
 
 
-<!-- =====================================================
-     OPKOMST
-===================================================== -->
-
-<section id="opkomst">
-
-    <h2>📈 De opkomst van Hero</h2>
-
-    <div class="kaart">
-
-        <p class="officieel">
-            Politiek dossier — streng gecontroleerd
-        </p>
-
-        <h3>De revolutie</h3>
-
-        <p>
-            Het begon allemaal toen Hero besloot dat de bestaande orde
-            simpelweg niet voldeed aan zijn hoge standaarden.
-        </p>
-
-        <p>
-            Wat volgde was een revolutionaire beweging die bekend kwam te
-            staan als <strong>[NAAM VAN DE REVOLUTIE]</strong>.
-        </p>
-
-        <p>
-            De bevolking had naar verluidt weinig keuze, maar was volgens
-            officiële documenten <em>uiterst enthousiast</em>.
-        </p>
-
-    </div>
-
-
-    <div class="kaart">
-
-        <h3>De machtsovername</h3>
-
-        <p>
-            Op <strong>[DATUM]</strong> nam Hero officieel de macht over.
-        </p>
-
-        <p>
-            Zijn eerste decreet was:
-        </p>
-
-        <div class="quote">
-            “[EERSTE OFFICIËLE DECREET VAN HERO]”
-        </div>
-
-    </div>
-
-
-    <div class="kaart">
-
-        <h3>De Grote Leider</h3>
-
-        <p>
-            Sindsdien staat Hero bekend als de onbetwiste leider van
-            Heroëstan.
-        </p>
-
-        <p>
-            Verkiezingen bestaan uiteraard nog steeds. Ze zijn alleen
-            enigszins voorspelbaar.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =========================================================
      HEROËSTAN
-===================================================== -->
+========================================================= -->
 
 <section id="heroestan">
+<div class="container">
 
-    <h2>🏴 Heroëstan</h2>
+    <div class="label">De staat</div>
+    <h2>Heroëstan</h2>
 
-    <div class="kaart">
+    <p>
+        Heroëstan was de staat die ontstond uit de politieke ideeën van
+        Hero Ploer. Het land was sterk gecentraliseerd en vrijwel ieder
+        onderdeel van de samenleving werd beïnvloed door het Heroïsme.
+    </p>
 
-        <p class="officieel">
-            Algemene informatie over de glorieuze republiek
-        </p>
+    <p>
+        De staat kende uitgebreide vijfjarenplannen, staatsbedrijven,
+        officiële feestdagen en een uitzonderlijk grote hoeveelheid
+        portretten van de leider.
+    </p>
 
-        <h3>Het land</h3>
+    <div class="grid">
 
-        <p>
-            Heroëstan is een onafhankelijke staat onder het visionaire
-            leiderschap van de Grote Leider.
-        </p>
+        <div class="card">
+            <h3>🏛️ Staatsvorm</h3>
+            <p>
+                Een gecentraliseerde Heroïstische volksrepubliek met
+                Hero als Opperste Leider.
+            </p>
+        </div>
 
-        <p>
-            De hoofdstad is <strong>[HOOFDSTAD]</strong>.
-        </p>
+        <div class="card">
+            <h3>📋 Vijfjarenplannen</h3>
+            <p>
+                Grote nationale plannen waarin vrijwel alles werd
+                gepland, inclusief dingen die achteraf niet nodig bleken.
+            </p>
+        </div>
 
-        <p>
-            De officiële taal is <strong>Heroëstaans</strong>,
-            hoewel niemand precies weet wat dat betekent.
-        </p>
+        <div class="card">
+            <h3>🎨 Staatskunst</h3>
+            <p>
+                Heroïstische kunst werd gebruikt om de geschiedenis,
+                cultuur en de leider te verheerlijken.
+            </p>
+        </div>
 
-    </div>
-
-
-    <div class="kaart">
-
-        <h3>📜 De nationale regels</h3>
-
-        <ol>
-            <li>De Grote Leider heeft altijd gelijk.</li>
-            <li>Als hij geen gelijk heeft, geldt regel 1.</li>
-            <li>Iedereen moet [GRAPPIGE REGEL] respecteren.</li>
-            <li>[NOG EEN ABSURDE REGEL].</li>
-            <li>Op [DAG] is het verplicht om [IETS GRAPPIGS] te doen.</li>
-            <li>Het is verboden om de Grote Leider te verslaan met [GAME/SPORT/etc.].</li>
-        </ol>
-
-    </div>
-
-
-    <div class="kaart">
-
-        <h3>🏛️ Staatsmotto</h3>
-
-        <div class="quote">
-            “[STAATSMOTTO VAN HEROËSTAN]”
+        <div class="card">
+            <h3>🚩 Symbolen</h3>
+            <p>
+                De vlag, portretten en andere Heroïstische symbolen waren
+                overal in het openbare leven aanwezig.
+            </p>
         </div>
 
     </div>
 
+</div>
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     HISTORISCHE MOMENTEN
+========================================================= -->
+
+<section id="momenten">
+<div class="container">
+
+    <div class="label">De geschiedenis</div>
+    <h2>Historische momenten</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>2033 — De Revolutie</h3>
+            <p>
+                Het begin van de politieke opkomst van Hero en de
+                Heroïsche beweging.
+            </p>
+
+            <div class="photo-placeholder">
+                <small>FOTO REVOLUTIE</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>2034 — Heroëstan</h3>
+            <p>
+                De officiële oprichting van de Volksrepubliek Heroëstan.
+            </p>
+
+            <div class="photo-placeholder">
+                <small>FOTO OPRICHTING</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>2056 — De Verfcrisis</h3>
+            <p>
+                Heroëstan ontdekt dat het misschien iets te veel verf
+                heeft geproduceerd.
+            </p>
+
+            <div class="photo-placeholder">
+                <small>FOTO VERFCRISIS</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>2098 — De dood van Hero</h3>
+            <p>
+                Het einde van het tijdperk van de Grote Leider.
+            </p>
+
+            <div class="photo-placeholder">
+                <small>FOTO HERDENKING</small>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     UITVINDINGEN
+========================================================= -->
+
+<section id="uitvindingen">
+<div class="container">
+
+    <div class="label">Technologische vooruitgang</div>
+    <h2>De uitvindingen van Hero</h2>
+
+    <p>
+        Hero was niet alleen politiek leider en voormalig schilder.
+        Hij stond ook bekend om zijn experimentele uitvindingen.
+        Niet alle uitvindingen waren even nuttig, maar dat heeft de
+        Heroïstische staat nooit tegengehouden om ze als historische
+        doorbraken te presenteren.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>De Automatische Schaduwverplaatser</h3>
+            <p>
+                Een apparaat dat beweerde schaduwen te kunnen verplaatsen.
+                Het precieze nut ervan is onbekend gebleven.
+            </p>
+            <div class="photo-placeholder">
+                <small>FOTO UITVINDING</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>De Zelfterugkerende Baksteen</h3>
+            <p>
+                Een baksteen die volgens Hero altijd terugkwam naar
+                zijn oorspronkelijke locatie.
+            </p>
+            <div class="photo-placeholder">
+                <small>FOTO UITVINDING</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>De Omgekeerde Paraplu</h3>
+            <p>
+                Een Heroïstisch antwoord op regen, waarvan de werking
+                nooit volledig is vastgesteld.
+            </p>
+            <div class="photo-placeholder">
+                <small>FOTO UITVINDING</small>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>De Universele Apparaatknop</h3>
+            <p>
+                De beroemdste uitvinding van Hero. De knop kon op vrijwel
+                ieder apparaat worden geplaatst en deed vervolgens niets.
+            </p>
+            <div class="photo-placeholder">
+                <small>FOTO KNOP</small>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
      VLAG
-===================================================== -->
+========================================================= -->
 
 <section id="vlag">
+<div class="container">
 
-    <h2>🚩 De vlag van Heroëstan</h2>
+    <div class="label">Nationaal symbool</div>
+    <h2>De vlag van Heroëstan</h2>
 
-    <div class="kaart" style="text-align:center;">
+    <div class="flag-box">
 
-        <!--
-            Vervang dit later eventueel door jullie echte vlag:
+        <div class="flag-placeholder">
+            <!-- Vervang door bijvoorbeeld:
+            <img src="vlag.png" alt="De vlag van Heroëstan">
+            -->
 
-            <img src="vlag.png" alt="Vlag van Heroëstan">
-        -->
-
-        <div
-            style="
-                max-width:600px;
-                height:350px;
-                margin:30px auto;
-                background:linear-gradient(
-                    to bottom,
-                    #a00000 0%,
-                    #a00000 33%,
-                    white 33%,
-                    white 66%,
-                    #168000 66%,
-                    #168000 100%
-                );
-                border:8px solid #d4af37;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                font-size:70px;
-            "
-        >
-            ★
+            PLAATS HIER DE VLAG
         </div>
 
-        <h3>De betekenis</h3>
+        <h3>De officiële vlag van Heroëstan</h3>
 
         <p>
-            <strong>Rood</strong> staat voor de ontembare revolutionaire
-            geest van Hero.
-        </p>
-
-        <p>
-            <strong>Wit</strong> staat voor de zuiverheid van de
-            Heroëstaans staat.
-        </p>
-
-        <p>
-            <strong>Groen</strong> staat voor [JULLIE EIGEN BETEKENIS].
-        </p>
-
-        <p>
-            Het symbool in het midden staat uiteraard voor
-            <strong>[BETEKENIS VAN HET SYMBOOL]</strong>.
+            De vlag vormde één van de belangrijkste symbolen van de
+            Heroïstische staat. Hier kun je de definitieve vlagafbeelding
+            plaatsen en de betekenis van de kleuren en symbolen uitleggen.
         </p>
 
     </div>
 
+</div>
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      VOLKSLIED
-===================================================== -->
+========================================================= -->
 
 <section id="volkslied">
+<div class="container">
 
-    <h2>🎵 Het Volkslied</h2>
+    <div class="label">Nationaal volkslied</div>
+    <h2>Het volkslied van Heroëstan</h2>
 
-    <div class="kaart">
+    <p>
+        Het Heroïstische volkslied werd tijdens officiële ceremonies,
+        nationale feestdagen en staatsbijeenkomsten ten gehore gebracht.
+    </p>
 
-        <p class="officieel">
-            Nationaal volkslied van de glorieuze staat Heroëstan
-        </p>
+    <div class="anthem">
 
-        <h3>[NAAM VAN HET VOLKSLIED]</h3>
+        <h3 style="color:white;">
+            Het officiële volkslied van Heroëstan
+        </h3>
 
         <p>
-            Luister hieronder naar het officiële volkslied.
+            ▶ Klik hieronder om het volkslied af te spelen.
         </p>
 
-        <!--
-            Zet jullie MP3-bestand in dezelfde map als index.html
-            en noem het bijvoorbeeld:
-
-            volkslied.mp3
-        -->
-
+        <!-- Zet je MP3 naast index.html en noem hem volkslied.mp3 -->
         <audio controls>
             <source src="volkslied.mp3" type="audio/mpeg">
             Je browser ondersteunt geen audio.
         </audio>
 
-        <div class="quote">
-            “[KORTE REGEL UIT JULLIE VOLKSLIED]”
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CITATEN
-===================================================== -->
-
-<section id="citaten">
-
-    <h2>💬 De uitspraken van Hero</h2>
-
-    <div class="quote">
-        “[HERO QUOTE 1]”
-        <span>— De Grote Leider</span>
-    </div>
-
-    <div class="quote">
-        “[HERO QUOTE 2]”
-        <span>— De Grote Leider</span>
-    </div>
-
-    <div class="quote">
-        “[HERO QUOTE 3]”
-        <span>— De Grote Leider</span>
-    </div>
-
-    <div class="quote">
-        “[HERO QUOTE 4]”
-        <span>— De Grote Leider</span>
-    </div>
-
-    <div class="kaart">
-        <h3>Het beroemdste citaat</h3>
-
-        <p>
-            Volgens historici is de volgende uitspraak verantwoordelijk
-            voor ongeveer 73% van alle politieke veranderingen in
-            Heroëstan:
+        <p style="font-size:.8rem;color:#aaa;">
+            Heroëstaanse Staatsarchieven — Muziekcollectie
         </p>
 
-        <div class="quote">
-            “[HET ALLERGRAPPIGSTE HERO-CITAAT]”
+    </div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     CITATEN
+========================================================= -->
+
+<section id="citaten">
+<div class="container">
+
+    <div class="label">De woorden van de leider</div>
+    <h2>Citaten van Hero</h2>
+
+    <div class="quote">
+        “Een volk zonder leiding is als een schilder zonder verf.
+        In beide gevallen gebeurt er eigenlijk niet zoveel.”
+        <span class="quote-author">— Hero Ploer</span>
+    </div>
+
+    <div class="quote">
+        “De toekomst behoort toe aan hen die haar vijfjarenplan
+        op tijd inleveren.”
+        <span class="quote-author">— Hero, ca. 2042</span>
+    </div>
+
+    <div class="quote">
+        “Een staat moet groot denken. Liefst groter dan de staat
+        eigenlijk aankan.”
+        <span class="quote-author">— toegeschreven aan Hero</span>
+    </div>
+
+    <div class="quote">
+        “Een goede uitvinding hoeft niet nuttig te zijn.
+        Ze moet vooral officieel goedgekeurd zijn.”
+        <span class="quote-author">— Hero, vermoedelijk 2080</span>
+    </div>
+
+    <div class="quote">
+        “Er valt niets meer aan te doen.”
+        <span class="quote-author">
+            — anonieme ambtenaar tijdens de val van Heroëstan
+        </span>
+    </div>
+
+</div>
+</section>
+
+
+<!-- =========================================================
+     EINDE
+========================================================= -->
+
+<section class="ending">
+
+    <div class="container">
+
+        <div class="label" style="color:#d52b31;">
+            Einde van het archief
         </div>
+
+        <h2>Het tijdperk van Hero is voorbij.</h2>
+
+        <p>
+            Hero Ploer begon als Nederlandse jongen met belangstelling
+            voor schilderkunst en geschiedenis.
+        </p>
+
+        <p>
+            Hij eindigde als revolutionair, politiek leider, uitvinder,
+            schilder, grondlegger van het Heroïsme en uiteindelijk als
+            de man wiens rijk na zijn dood langzaam uit elkaar viel.
+        </p>
+
+        <p>
+            Zijn rijk verdween.
+            Zijn standbeelden verdwenen.
+            Zijn vijfjarenplannen verdwenen.
+        </p>
+
+        <p>
+            Maar de geschiedenis vergat Hero niet.
+        </p>
+
+        <p style="font-size:1.5rem;">
+            <strong>Hero leeft voort.</strong>
+        </p>
+
+        <p>
+            Althans, in de archieven.
+        </p>
+
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     GALERIJ
-===================================================== -->
-
-<section id="galerij">
-
-    <h2>📸 Staatsgalerij</h2>
-
-    <p style="text-align:center;">
-        Een verzameling van historische documenten, staatsfoto's en
-        fotografisch bewijs van de Grote Leider.
-    </p>
-
-    <div class="galerij">
-
-        <!--
-            FOTO TOEVOEGEN:
-
-            Zet bijvoorbeeld foto1.jpg naast index.html
-            en verander het blok naar:
-
-            <div class="foto">
-                <img src="foto1.jpg" alt="Hero tijdens ...">
-            </div>
-        -->
-
-        <div class="foto">
-            <span>📸<br><br>FOTO 1<br>Voeg hier een foto toe</span>
-        </div>
-
-        <div class="foto">
-            <span>📸<br><br>FOTO 2<br>Voeg hier een foto toe</span>
-        </div>
-
-        <div class="foto">
-            <span>📸<br><br>FOTO 3<br>Voeg hier een foto toe</span>
-        </div>
-
-        <div class="foto">
-            <span>📸<br><br>FOTO 4<br>Voeg hier een foto toe</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
-
-    <p>
-        <strong>STAATSARCHIEF HEROËSTAN</strong>
-    </p>
-
-    <p>
-        Officiële geschiedschrijving sinds [JAAR].
-    </p>
-
-    <p>
-        Alle historische feiten op deze website zijn volledig betrouwbaar
-        zolang niemand ze controleert.
-    </p>
-
-    <p>
-        © 2098 — Ministerie van Heroïsche Zaken
-    </p>
-
+    Het Historisch Staatsarchief van Heroëstan · 2098–2110
+    <br>
+    Alle historische feiten op deze website zijn onderdeel van het
+    Heroïstische archief.
 </footer>
 
 </body>
 </html>
-```
