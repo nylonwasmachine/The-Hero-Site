@@ -175,24 +175,30 @@
 .photo-placeholder {
     float: right;
     width: 300px;
-    height: 210px;
+    min-height: 210px;
     margin: 0 0 25px 30px;
-    background: #d8d1c6;
-    border: 2px solid #968c7f;
+
+    /* zelfde kleur als de website */
+    background: #f4f0e8;
+
+    /* geen zichtbare rand */
+    border: none;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: #625a51;
-    font-family: Arial, sans-serif;
-    font-size: .8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+
     overflow: hidden;
     position: relative;
     padding: 0;
 }
 
+/* Placeholdertekst volledig verbergen */
+.photo-placeholder .placeholder-text {
+    display: none;
+}
+
+/* Afbeelding */
 .photo-placeholder img {
     display: none;
     width: 100%;
@@ -201,19 +207,16 @@
     object-position: center;
     margin: 0;
     padding: 0;
-    border: 0;
+    border: none;
 }
 
-.photo-placeholder .placeholder-text {
-    padding: 20px;
-}
-
+/* Als afbeelding gevonden is */
 .photo-placeholder.has-image img {
     display: block;
 }
 
-.photo-placeholder.has-image .placeholder-text {
-    display: none;
+.photo-placeholder.has-image {
+    background: #f4f0e8;
 }
 
         /* =========================
