@@ -1875,5 +1875,108 @@ document.querySelectorAll(
 });
 </script>
 
+    <!-- Grote afbeelding / lightbox -->
+<div id="image-lightbox" class="image-lightbox">
+    <button class="lightbox-close" aria-label="Sluiten">&times;</button>
+    <img id="lightbox-image" src="" alt="">
+</div>
+
+<style>
+.image-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    cursor: zoom-out;
+}
+
+.image-lightbox.open {
+    display: flex;
+}
+
+.image-lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.photo-placeholder.has-image img {
+    cursor: zoom-in;
+}
+
+@media (max-width: 600px) {
+    .image-lightbox {
+        padding: 15px;
+    }
+
+    .image-lightbox img {
+        max-width: 96vw;
+        max-height: 88vh;
+    }
+
+    .lightbox-close {
+        top: 8px;
+        right: 15px;
+    }
+}
+</style>
+
+<script>
+const lightbox = document.getElementById("image-lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const closeButton = document.querySelector(".lightbox-close");
+
+document.querySelectorAll(".photo-placeholder img, .flag-placeholder img").forEach(img => {
+    img.addEventListener("click", function () {
+        if (!this.src || this.src.endsWith("/") || !this.complete || this.naturalWidth === 0) {
+            return;
+        }
+
+        lightboxImage.src = this.src;
+        lightboxImage.alt = this.alt || "Vergrote afbeelding";
+        lightbox.classList.add("open");
+    });
+});
+
+function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightboxImage.src = "";
+}
+
+closeButton.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", function (event) {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+});
+</script>
+
 </body>
 </html>
