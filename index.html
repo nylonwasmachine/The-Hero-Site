@@ -181,37 +181,43 @@
         ========================= */
 
         .photo-placeholder {
-            float: right;
-            width: 300px;
-            min-height: 210px;
-            margin: 0 0 25px 30px;
-            background: #d8d1c6;
-            border: 2px solid #968c7f;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #625a51;
-            font-family: Arial, sans-serif;
-            font-size: .8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    float: right;
+    width: 300px;
+    height: 210px;
+    margin: 0 0 25px 30px;
+    background: #d8d1c6;
+    border: 2px solid #968c7f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #625a51;
+    font-family: Arial, sans-serif;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+    position: relative;
+}
 
-        .photo-placeholder img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
 
-        .photo-placeholder small {
-            display: block;
-            padding: 20px;
-        }
+.photo-placeholder .placeholder-text {
+    padding: 20px;
+}
 
-        .clear {
-            clear: both;
-        }
+.photo-placeholder.has-image img {
+    display: block;
+}
+
+.photo-placeholder.has-image .placeholder-text {
+    display: none;
+}
 
         /* =========================
            TIJDLIJN
@@ -466,16 +472,14 @@
         <div class="chapter-number">Hoofdstuk I</div>
         <h3>De vroege jaren</h3>
 
-        <div class="photo-placeholder">
-            <!-- Vervang dit blok eventueel door:
-            <img src="hero-kind.jpg" alt="Hero als kind">
-            -->
-            <small>
-                FOTO PLAATSEN<br><br>
-                Hero als kind<br>
-                ca. 2018
-            </small>
-        </div>
+      <div class="photo-placeholder" data-image="hero-kind.jpg">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             Hero Ploer werd in 2012 geboren in Nederland. Over zijn vroege
@@ -516,13 +520,14 @@
         <div class="chapter-number">Hoofdstuk II</div>
         <h3>De eerste schilderijen</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                Een vroeg schilderij van Hero<br>
-                ca. 2024
-            </small>
-        </div>
+       <div class="photo-placeholder" data-image="schilder.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             Rond 2024 begon Hero zich bezig te houden met schilderkunst.
@@ -563,14 +568,14 @@
         <div class="chapter-number">Hoofdstuk III</div>
         <h3>De verhuizing naar Armenië</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                Hero in Armenië<br>
-                2035
-            </small>
-        </div>
-
+        <div class="photo-placeholder" data-image="radicalist.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         <p>
             Op 23-jarige leeftijd besloot Hero Nederland te verlaten.
             In 2035 vertrok hij naar Armenië, waar hij een nieuw hoofdstuk
@@ -645,13 +650,14 @@
         <div class="chapter-number">Hoofdstuk V</div>
         <h3>Azerbeidzjan</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                Hero in Azerbeidzjan<br>
-                ca. 2036
-            </small>
-        </div>
+       <div class="photo-placeholder" data-image="politieke-partij.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             Na zijn periode in Armenië reisde Hero verder naar Azerbeidzjan.
@@ -722,13 +728,14 @@
         <div class="chapter-number">Hoofdstuk VII</div>
         <h3>De Grote Heroïsche Revolutie</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                De Grote Heroïsche Revolutie
-            </small>
-        </div>
-
+       <div class="photo-placeholder" data-image="revolutie.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         <p>
             In 2033 brak de Grote Heroïsche Revolutie uit.
             De beweging van Hero groeide uit tot een georganiseerde politieke
@@ -758,12 +765,14 @@
         <div class="chapter-number">Hoofdstuk VIII</div>
         <h3>De oprichting van de USHR</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                Oprichting van de USHR
-            </small>
-        </div>
+        <div class="photo-placeholder" data-image="samenvoeging.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             Uit de samenwerking tussen Armenië, Georgië en Azerbeidzjan
@@ -869,14 +878,14 @@
         <div class="chapter-number">Hoofdstuk XI</div>
         <h3>De Grote Nationale Verfcrisis</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                Hero tijdens de Verfcrisis<br>
-                2056
-            </small>
-        </div>
-
+        <div class="photo-placeholder" data-image="verfcrisis.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         <p>
             In 2056 bereikte de Heroïstische economie een bijzonder dieptepunt.
         </p>
@@ -946,12 +955,14 @@
         <div class="chapter-number">Hoofdstuk XIII</div>
         <h3>De persoonlijkheidscultus</h3>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                Hero tijdens een staatsceremonie
-            </small>
-        </div>
+        <<div class="photo-placeholder" data-image="zichzelf.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             In de jaren daarna groeide de persoonlijkheidscultus verder.
@@ -1079,12 +1090,14 @@
             opgebouwd en verschillende nesten gemaakt.
         </p>
 
-        <div class="photo-placeholder">
-            <small>
-                FOTO PLAATSEN<br><br>
-                De beroemde rat van Hero
-            </small>
-        </div>
+       <div class="photo-placeholder" data-image="hantavirusrat.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             Het dier beschikte bovendien over voedselvoorraden waarvan de
@@ -1223,20 +1236,14 @@
         <div class="chapter-number">Hoofdstuk XX</div>
         <h3>De val van Heroëstan</h3>
 
-        <div class="photo-placeholder">
-
-            <!--
-            Zet hier bijvoorbeeld je eigen Napoleon-afbeelding.
-            Gebruik bij voorkeur een afbeelding waarvoor je rechten hebt.
-            -->
-
-            <small>
-                FOTO PLAATSEN<br><br>
-                Napoleon / “There is nothing we can do”<br><br>
-                PLAATS HIER JE AFBEELDING
-            </small>
-
-        </div>
+       <div class="photo-placeholder" data-image="napoleon.jpg">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <p>
             Tussen 2105 en 2110 viel het rijk vrijwel volledig uiteen.
@@ -1452,22 +1459,28 @@
                 Heroïsche beweging.
             </p>
 
-            <div class="photo-placeholder">
-                <small>FOTO REVOLUTIE</small>
-            </div>
-        </div>
-
+           <div class="photo-placeholder" data-image="revolutie.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         <div class="card">
             <h3>2034 — Heroëstan</h3>
             <p>
                 De officiële oprichting van de Volksrepubliek Heroëstan.
             </p>
 
-            <div class="photo-placeholder">
-                <small>FOTO OPRICHTING</small>
-            </div>
-        </div>
-
+            <div class="photo-placeholder" data-image="1-staat.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         <div class="card">
             <h3>2056 — De Verfcrisis</h3>
             <p>
@@ -1475,10 +1488,14 @@
                 heeft geproduceerd.
             </p>
 
-            <div class="photo-placeholder">
-                <small>FOTO VERFCRISIS</small>
-            </div>
-        </div>
+          <div class="photo-placeholder" data-image="verfovervloed.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <div class="card">
             <h3>2098 — De dood van Hero</h3>
@@ -1486,9 +1503,14 @@
                 Het einde van het tijdperk van de Grote Leider.
             </p>
 
-            <div class="photo-placeholder">
-                <small>FOTO HERDENKING</small>
-            </div>
+            <div class="photo-placeholder" data-image="dood.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         </div>
 
     </div>
@@ -1523,10 +1545,14 @@
                 Een apparaat dat beweerde schaduwen te kunnen verplaatsen.
                 Het precieze nut ervan is onbekend gebleven.
             </p>
-            <div class="photo-placeholder">
-                <small>FOTO UITVINDING</small>
-            </div>
-        </div>
+           <div class="photo-placeholder" data-image="machine-1.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
 
         <div class="card">
             <h3>De Zelfterugkerende Baksteen</h3>
@@ -1534,9 +1560,14 @@
                 Een baksteen die volgens Hero altijd terugkwam naar
                 zijn oorspronkelijke locatie.
             </p>
-            <div class="photo-placeholder">
-                <small>FOTO UITVINDING</small>
-            </div>
+           <div class="photo-placeholder" data-image="baksteen.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         </div>
 
         <div class="card">
@@ -1545,9 +1576,14 @@
                 Een Heroïstisch antwoord op regen, waarvan de werking
                 nooit volledig is vastgesteld.
             </p>
-            <div class="photo-placeholder">
-                <small>FOTO UITVINDING</small>
-            </div>
+           <div class="photo-placeholder" data-image="paraplu.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         </div>
 
         <div class="card">
@@ -1556,9 +1592,14 @@
                 De beroemdste uitvinding van Hero. De knop kon op vrijwel
                 ieder apparaat worden geplaatst en deed vervolgens niets.
             </p>
-            <div class="photo-placeholder">
-                <small>FOTO KNOP</small>
-            </div>
+          <div class="photo-placeholder" data-image="machine-2.png">
+    <img src="" alt="Hero als kind">
+    <span class="placeholder-text">
+        FOTO PLAATSEN<br><br>
+        Hero als kind<br>
+        ca. 2018
+    </span>
+</div>
         </div>
 
     </div>
@@ -1741,6 +1782,22 @@
     Alle historische feiten op deze website zijn onderdeel van het
     Heroïstische archief.
 </footer>
+            <script>
+document.querySelectorAll(".photo-placeholder[data-image]").forEach(box => {
+    const image = box.querySelector("img");
+    const filename = box.dataset.image;
+
+    image.src = filename;
+
+    image.onload = function () {
+        box.classList.add("has-image");
+    };
+
+    image.onerror = function () {
+        box.classList.remove("has-image");
+    };
+});
+</script>
 
 </body>
 </html>
