@@ -1,1 +1,825 @@
+```html
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>De Grote Leider — Officieel Archief van Heroëstan</title>
+
+    <style>
+        :root {
+            --rood: #a00000;
+            --donkerrood: #650000;
+            --zwart: #090909;
+            --goud: #d4af37;
+            --creme: #f2ead7;
+            --grijs: #222;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, #3b0000 0%, #090909 45%);
+            color: var(--creme);
+            line-height: 1.7;
+        }
+
+        /* =========================
+           NAVIGATIE
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(0, 0, 0, 0.96);
+            border-bottom: 3px solid var(--goud);
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 5px;
+
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 15px;
+
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--goud);
+            border-color: var(--goud);
+            background: var(--rood);
+        }
+
+        /* =========================
+           ALGEMEEN
+        ========================= */
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 25px;
+            border-bottom: 1px solid #442020;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: var(--goud);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .kaart {
+            background: rgba(20, 20, 20, 0.92);
+            border: 1px solid #5c3030;
+            border-left: 5px solid var(--rood);
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+        }
+
+        .officieel {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #aaa;
+        }
+
+        .goud {
+            color: var(--goud);
+        }
+
+        /* =========================
+           HERO / HEADER
+        ========================= */
+
+        #home {
+            min-height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.35),
+                    rgba(80,0,0,0.7)
+                );
+        }
+
+        .vlag-mini {
+            width: 180px;
+            height: 110px;
+            margin-bottom: 35px;
+
+            background: linear-gradient(
+                to bottom,
+                #a00000 0%,
+                #a00000 33%,
+                #ffffff 33%,
+                #ffffff 66%,
+                #168000 66%,
+                #168000 100%
+            );
+
+            border: 5px solid var(--goud);
+            box-shadow: 0 0 35px rgba(212,175,55,0.35);
+        }
+
+        #home h1 {
+            font-size: clamp(50px, 9vw, 110px);
+            margin: 0;
+            color: white;
+            text-shadow:
+                4px 4px 0 #600000,
+                0 0 30px rgba(255,255,255,0.15);
+        }
+
+        #home h3 {
+            color: var(--goud);
+            font-size: 25px;
+            margin-top: 15px;
+        }
+
+        .stempel {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+
+            color: var(--goud);
+            border: 2px solid var(--goud);
+
+            transform: rotate(-3deg);
+
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           TIJDLIJN
+        ========================= */
+
+        .timeline {
+            border-left: 4px solid var(--rood);
+            margin-left: 20px;
+            padding-left: 30px;
+        }
+
+        .moment {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .moment::before {
+            content: "";
+            position: absolute;
+
+            width: 15px;
+            height: 15px;
+
+            background: var(--goud);
+            border: 4px solid var(--rood);
+            border-radius: 50%;
+
+            left: -41px;
+            top: 7px;
+        }
+
+        .jaar {
+            color: var(--goud);
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           QUOTES
+        ========================= */
+
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            text-align: center;
+            padding: 35px;
+            margin: 25px 0;
+
+            border-top: 1px solid var(--goud);
+            border-bottom: 1px solid var(--goud);
+        }
+
+        .quote span {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #aaa;
+            font-style: normal;
+        }
+
+        /* =========================
+           FOTO GALERIJ
+        ========================= */
+
+        .galerij {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .foto {
+            height: 250px;
+
+            background:
+                linear-gradient(135deg, #333, #111);
+
+            border: 2px solid #633;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: #999;
+        }
+
+        .foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =========================
+           AUDIO
+        ========================= */
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+
+            background: #050505;
+            border-top: 3px solid var(--rood);
+
+            color: #777;
+        }
+
+        footer strong {
+            color: var(--goud);
+        }
+
+        /* =========================
+           MOBIEL
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+                gap: 0;
+            }
+
+            nav a {
+                font-size: 10px;
+                padding: 8px;
+            }
+
+            section {
+                padding: 75px 18px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .kaart {
+                padding: 20px;
+            }
+
+            .quote {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATIE
+===================================================== -->
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#leven">Leven</a>
+    <a href="#opkomst">Opkomst</a>
+    <a href="#heroestan">Heroëstan</a>
+    <a href="#vlag">Vlag</a>
+    <a href="#volkslied">Volkslied</a>
+    <a href="#citaten">Citaten</a>
+    <a href="#galerij">Galerij</a>
+</nav>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section id="home">
+
+    <div class="vlag-mini"></div>
+
+    <div class="officieel">
+        Officieel historisch staatsarchief — editie 2098
+    </div>
+
+    <h1>DE GROTE LEIDER</h1>
+
+    <h3>Het officiële archief van Heroëstan</h3>
+
+    <p>
+        <strong>Één leider. Eén land. Eén buitengewoon twijfelachtige geschiedenis.</strong>
+    </p>
+
+    <div class="stempel">
+        GECLASSIFICEERD — MAAR NIET ECHT
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LEVEN
+===================================================== -->
+
+<section id="leven">
+
+    <h2>📖 Het leven van Hero</h2>
+
+    <div class="kaart">
+
+        <p class="officieel">
+            Biografisch dossier — Staatsarchief Heroëstan
+        </p>
+
+        <h3>De geboorte van een legende</h3>
+
+        <p>
+            Op <strong>[GEBOORTEDATUM]</strong> werd in
+            <strong>[GEBOORTEPLAATS]</strong> een persoon geboren die
+            volgens historici later een ongekend grote invloed zou krijgen
+            op de wereldgeschiedenis.
+        </p>
+
+        <p>
+            Zijn naam was <strong>[NAAM VAN JE VRIEND]</strong>.
+        </p>
+
+        <p>
+            Volgens betrouwbare bronnen — voornamelijk bronnen die Hero zelf
+            heeft goedgekeurd — was al vroeg duidelijk dat hij voor iets
+            groters bestemd was.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="moment">
+            <div class="jaar">2012</div>
+            <h3>Het begin</h3>
+            <p>
+                Hero wordt geboren. Niemand weet op dat moment nog dat
+                Heroëstan binnenkort een onvermijdelijk onderdeel van de
+                wereldgeschiedenis zal worden.
+            </p>
+        </div>
+
+        <div class="moment">
+            <div class="jaar">[JAAR]</div>
+            <h3>De eerste tekenen van leiderschap</h3>
+            <p>
+                Voeg hier een grappig verhaal toe uit zijn jeugd.
+                Bijvoorbeeld iets waarin hij al deed alsof hij de baas was.
+            </p>
+        </div>
+
+        <div class="moment">
+            <div class="jaar">[JAAR]</div>
+            <h3>De ontdekking van zijn ware bestemming</h3>
+            <p>
+                Op deze dag begon de legende pas echt.
+            </p>
+        </div>
+
+        <div class="moment">
+            <div class="jaar">2098</div>
+            <h3>De officiële geschiedschrijving</h3>
+            <p>
+                Hero wordt definitief opgenomen in de geschiedenisboeken.
+                Waarschijnlijk tegen zijn zin, maar daar heeft de
+                geschiedcommissie weinig boodschap aan.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OPKOMST
+===================================================== -->
+
+<section id="opkomst">
+
+    <h2>📈 De opkomst van Hero</h2>
+
+    <div class="kaart">
+
+        <p class="officieel">
+            Politiek dossier — streng gecontroleerd
+        </p>
+
+        <h3>De revolutie</h3>
+
+        <p>
+            Het begon allemaal toen Hero besloot dat de bestaande orde
+            simpelweg niet voldeed aan zijn hoge standaarden.
+        </p>
+
+        <p>
+            Wat volgde was een revolutionaire beweging die bekend kwam te
+            staan als <strong>[NAAM VAN DE REVOLUTIE]</strong>.
+        </p>
+
+        <p>
+            De bevolking had naar verluidt weinig keuze, maar was volgens
+            officiële documenten <em>uiterst enthousiast</em>.
+        </p>
+
+    </div>
+
+
+    <div class="kaart">
+
+        <h3>De machtsovername</h3>
+
+        <p>
+            Op <strong>[DATUM]</strong> nam Hero officieel de macht over.
+        </p>
+
+        <p>
+            Zijn eerste decreet was:
+        </p>
+
+        <div class="quote">
+            “[EERSTE OFFICIËLE DECREET VAN HERO]”
+        </div>
+
+    </div>
+
+
+    <div class="kaart">
+
+        <h3>De Grote Leider</h3>
+
+        <p>
+            Sindsdien staat Hero bekend als de onbetwiste leider van
+            Heroëstan.
+        </p>
+
+        <p>
+            Verkiezingen bestaan uiteraard nog steeds. Ze zijn alleen
+            enigszins voorspelbaar.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HEROËSTAN
+===================================================== -->
+
+<section id="heroestan">
+
+    <h2>🏴 Heroëstan</h2>
+
+    <div class="kaart">
+
+        <p class="officieel">
+            Algemene informatie over de glorieuze republiek
+        </p>
+
+        <h3>Het land</h3>
+
+        <p>
+            Heroëstan is een onafhankelijke staat onder het visionaire
+            leiderschap van de Grote Leider.
+        </p>
+
+        <p>
+            De hoofdstad is <strong>[HOOFDSTAD]</strong>.
+        </p>
+
+        <p>
+            De officiële taal is <strong>Heroëstaans</strong>,
+            hoewel niemand precies weet wat dat betekent.
+        </p>
+
+    </div>
+
+
+    <div class="kaart">
+
+        <h3>📜 De nationale regels</h3>
+
+        <ol>
+            <li>De Grote Leider heeft altijd gelijk.</li>
+            <li>Als hij geen gelijk heeft, geldt regel 1.</li>
+            <li>Iedereen moet [GRAPPIGE REGEL] respecteren.</li>
+            <li>[NOG EEN ABSURDE REGEL].</li>
+            <li>Op [DAG] is het verplicht om [IETS GRAPPIGS] te doen.</li>
+            <li>Het is verboden om de Grote Leider te verslaan met [GAME/SPORT/etc.].</li>
+        </ol>
+
+    </div>
+
+
+    <div class="kaart">
+
+        <h3>🏛️ Staatsmotto</h3>
+
+        <div class="quote">
+            “[STAATSMOTTO VAN HEROËSTAN]”
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VLAG
+===================================================== -->
+
+<section id="vlag">
+
+    <h2>🚩 De vlag van Heroëstan</h2>
+
+    <div class="kaart" style="text-align:center;">
+
+        <!--
+            Vervang dit later eventueel door jullie echte vlag:
+
+            <img src="vlag.png" alt="Vlag van Heroëstan">
+        -->
+
+        <div
+            style="
+                max-width:600px;
+                height:350px;
+                margin:30px auto;
+                background:linear-gradient(
+                    to bottom,
+                    #a00000 0%,
+                    #a00000 33%,
+                    white 33%,
+                    white 66%,
+                    #168000 66%,
+                    #168000 100%
+                );
+                border:8px solid #d4af37;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:70px;
+            "
+        >
+            ★
+        </div>
+
+        <h3>De betekenis</h3>
+
+        <p>
+            <strong>Rood</strong> staat voor de ontembare revolutionaire
+            geest van Hero.
+        </p>
+
+        <p>
+            <strong>Wit</strong> staat voor de zuiverheid van de
+            Heroëstaans staat.
+        </p>
+
+        <p>
+            <strong>Groen</strong> staat voor [JULLIE EIGEN BETEKENIS].
+        </p>
+
+        <p>
+            Het symbool in het midden staat uiteraard voor
+            <strong>[BETEKENIS VAN HET SYMBOOL]</strong>.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     VOLKSLIED
+===================================================== -->
+
+<section id="volkslied">
+
+    <h2>🎵 Het Volkslied</h2>
+
+    <div class="kaart">
+
+        <p class="officieel">
+            Nationaal volkslied van de glorieuze staat Heroëstan
+        </p>
+
+        <h3>[NAAM VAN HET VOLKSLIED]</h3>
+
+        <p>
+            Luister hieronder naar het officiële volkslied.
+        </p>
+
+        <!--
+            Zet jullie MP3-bestand in dezelfde map als index.html
+            en noem het bijvoorbeeld:
+
+            volkslied.mp3
+        -->
+
+        <audio controls>
+            <source src="volkslied.mp3" type="audio/mpeg">
+            Je browser ondersteunt geen audio.
+        </audio>
+
+        <div class="quote">
+            “[KORTE REGEL UIT JULLIE VOLKSLIED]”
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CITATEN
+===================================================== -->
+
+<section id="citaten">
+
+    <h2>💬 De uitspraken van Hero</h2>
+
+    <div class="quote">
+        “[HERO QUOTE 1]”
+        <span>— De Grote Leider</span>
+    </div>
+
+    <div class="quote">
+        “[HERO QUOTE 2]”
+        <span>— De Grote Leider</span>
+    </div>
+
+    <div class="quote">
+        “[HERO QUOTE 3]”
+        <span>— De Grote Leider</span>
+    </div>
+
+    <div class="quote">
+        “[HERO QUOTE 4]”
+        <span>— De Grote Leider</span>
+    </div>
+
+    <div class="kaart">
+        <h3>Het beroemdste citaat</h3>
+
+        <p>
+            Volgens historici is de volgende uitspraak verantwoordelijk
+            voor ongeveer 73% van alle politieke veranderingen in
+            Heroëstan:
+        </p>
+
+        <div class="quote">
+            “[HET ALLERGRAPPIGSTE HERO-CITAAT]”
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALERIJ
+===================================================== -->
+
+<section id="galerij">
+
+    <h2>📸 Staatsgalerij</h2>
+
+    <p style="text-align:center;">
+        Een verzameling van historische documenten, staatsfoto's en
+        fotografisch bewijs van de Grote Leider.
+    </p>
+
+    <div class="galerij">
+
+        <!--
+            FOTO TOEVOEGEN:
+
+            Zet bijvoorbeeld foto1.jpg naast index.html
+            en verander het blok naar:
+
+            <div class="foto">
+                <img src="foto1.jpg" alt="Hero tijdens ...">
+            </div>
+        -->
+
+        <div class="foto">
+            <span>📸<br><br>FOTO 1<br>Voeg hier een foto toe</span>
+        </div>
+
+        <div class="foto">
+            <span>📸<br><br>FOTO 2<br>Voeg hier een foto toe</span>
+        </div>
+
+        <div class="foto">
+            <span>📸<br><br>FOTO 3<br>Voeg hier een foto toe</span>
+        </div>
+
+        <div class="foto">
+            <span>📸<br><br>FOTO 4<br>Voeg hier een foto toe</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        <strong>STAATSARCHIEF HEROËSTAN</strong>
+    </p>
+
+    <p>
+        Officiële geschiedschrijving sinds [JAAR].
+    </p>
+
+    <p>
+        Alle historische feiten op deze website zijn volledig betrouwbaar
+        zolang niemand ze controleert.
+    </p>
+
+    <p>
+        © 2098 — Ministerie van Heroïsche Zaken
+    </p>
+
+</footer>
+
+</body>
+</html>
+```
