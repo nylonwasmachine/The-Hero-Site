@@ -178,10 +178,7 @@
     min-height: 210px;
     margin: 0 0 25px 30px;
 
-    /* zelfde kleur als de website */
-    background: #eee9df;
-
-    /* geen zichtbare rand */
+    background: transparent;
     border: none;
 
     display: flex;
@@ -193,30 +190,44 @@
     padding: 0;
 }
 
-/* Placeholdertekst volledig verbergen */
+/* Geen tekst meer */
 .photo-placeholder .placeholder-text {
     display: none;
 }
 
-/* Afbeelding */
+/* Alle foto's */
 .photo-placeholder img {
     display: none;
+
     width: 100%;
     height: 100%;
+
     object-fit: contain;
     object-position: center;
+
     margin: 0;
     padding: 0;
     border: none;
 }
 
-/* Als afbeelding gevonden is */
+/* Zodra de foto bestaat */
 .photo-placeholder.has-image img {
     display: block;
 }
 
+/* Achtergrond volledig transparant zodra foto geladen is */
 .photo-placeholder.has-image {
-    background: #eee9df;
+    background: transparent;
+    border: none;
+}
+
+/* Napoleon hoeft geen speciale behandeling meer */
+.napoleon-image {
+    height: 280px;
+}
+
+.napoleon-image img {
+    object-fit: contain;
 }
 
         /* =========================
